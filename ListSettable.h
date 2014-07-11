@@ -1,4 +1,6 @@
-template <class E> class ListSettable {
+
+template <typename E>
+class ListSettable {
     public:
         bool add(E item);
         bool remove(E item);
