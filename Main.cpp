@@ -1,10 +1,13 @@
 #include <iostream>
+#include "Settable.h"
 #include "ListSettable.h"
-#include "ListSettable.cpp"
+
+
 using namespace std;
 
 int main()
 {
-    ListSettable<int> *list = new ListSettable<int> ();
-    list->add(1);
+    Vector3f* v = new Vector3f;
+    ListSettable<Vector3f> *list = new ListSettable<Vector3f> ();
+    list->add(*v);
 }
