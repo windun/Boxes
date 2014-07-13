@@ -1,5 +1,5 @@
 template <typename E>
-class ListSettable {
+class ListSettable : public Boxes <E>{
 	class Node
 	{
 		public:
@@ -59,10 +59,12 @@ bool ListSettable<E>::add(E* item)
 	}
 	else
 	{
-		tail->next = new Node (item);
-		tail->prev = tail;
-		tail = tail->next;
-		tail->next = 0;
+		Node* n = new Node (item);
+		n->prev = tail;
+		n->next = 0;
+
+		tail->next = n;
+		tail = n;
 	}
 	size_++;
     return true;
