@@ -2,7 +2,7 @@ template <typename E>
 class Settable {
     public:
         bool set (E& value);
-        E* get ();
+        bool equals (E& value);
 };
 
 class Vector3f : public Settable<Vector3f>
@@ -10,7 +10,8 @@ class Vector3f : public Settable<Vector3f>
     private:
         int value;
     public:
-        bool set (Vector3f& val);
-        Vector3f* get ();
+        Vector3f (int value);
+        bool set (Vector3f& vector);
+        bool equals (Vector3f* vector);
         int getValue ();
 };

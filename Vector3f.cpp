@@ -3,15 +3,20 @@
 
 int value;
 
-bool Vector3f::set(Vector3f& val)
+Vector3f::Vector3f(int value)
 {
-    value = val.value;
+	this->value = value;
+}
+
+bool Vector3f::set(Vector3f& vector)
+{
+    value = vector.value;
     return true;
 }
 
-Vector3f* Vector3f::get()
+bool Vector3f::equals (Vector3f* vector)
 {
-    return this;
+	return vector->value = value;
 }
 
 int Vector3f::getValue ()
