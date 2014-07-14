@@ -1,3 +1,9 @@
+/***************************************************************************************************************
+ *
+ *	Boxes<E> - These are continers of the recyclable data, Settable.
+ *
+ */
+
 template <typename E>
 class Boxes
 {

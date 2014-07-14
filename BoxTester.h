@@ -1,3 +1,5 @@
+#include <exception>
+
 template <class B, typename E>
 class BoxTester
 {
@@ -9,4 +11,8 @@ template <typename B, typename E>
 void BoxTester<B, E>::test (B* box)
 {
 	box->add(new E);
+	if (box->size() == 1) throw std::exception ("A");
+
 }
+
+

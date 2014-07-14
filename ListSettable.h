@@ -1,3 +1,9 @@
+/***************************************************************************************************************
+ *
+ *	ListSettable<E> - This is an implementation of a doubly-linked list.
+ *
+ */
+
 template <typename E>
 class ListSettable : public Boxes <E>{
 	class Node
@@ -9,17 +15,15 @@ class ListSettable : public Boxes <E>{
 			Node* prev;
 	};
     private:
-	 	Node* find (E* item);
-        Node* head;
-        Node* tail;
-        Node* ptr;
+	 	Node* find (E* item);	// O(n) searches for the item in the list
+        Node* head;				// points to the first item
+        Node* tail;				// points to the last item (not null)
+        Node* ptr;				// iterator-less iterations
         int size_;
 
-
-
     public:
-        bool add(E* item);
-        bool remove(E* item);
+        bool add(E* item);		// adds the item to the tail of the list
+        bool remove(E* item);	// Uses find (E* item)
     
         void begin ();
         bool hasNext ();

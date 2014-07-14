@@ -1,3 +1,16 @@
+/***************************************************************************************************************
+ *
+ *	Settable<E> - This class assumes the set() method. This will be used in the Settable containers
+ *		for recycling data. Containers should follow the following design pattern:
+ *
+ *				Node* old;
+ *				...
+ *				old.set(new_value);
+ *				...
+ *		The intention is to re-use old data.
+ *
+ */
+
 template <typename E>
 class Settable {
     public:
