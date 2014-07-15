@@ -79,9 +79,17 @@ bool ListSettable<E>::remove(E* item)
 {
     Node* n = find (item);
     if (n == 0) return false;
-    n->prev->next = n->next;
-    n->next->prev = n->prev;
-    //----------------------> recycle n;
+    if (size_ == 1)
+    {
+    	delete n;
+    	head = tail = ptr = 0;
+    }
+    else
+    {
+        n->prev->next = n->next;
+        n->next->prev = n->prev;
+        //----------------------> recycle n;
+    }
     size_--;
     return true;
 }

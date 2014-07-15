@@ -8,12 +8,12 @@ template <typename E>
 class Boxes
 {
 	public:
-		bool add(E* item);
-		bool remove(E* item);
+		virtual bool add(E* item) = 0;
+		virtual bool remove(E* item) = 0;
 
-		void begin ();
-		bool hasNext ();
-		E* next ();
+		virtual void begin () = 0;
+		virtual bool hasNext () = 0;
+		virtual E* next () = 0;
 
-		int size ();
+		virtual int size () = 0;
 };
