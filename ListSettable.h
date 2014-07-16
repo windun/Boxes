@@ -24,6 +24,8 @@ class ListSettable : public Boxes <E>{
     public:
         bool add(E* item);		// adds the item to the tail of the list
         bool remove(E* item);	// Uses find (E* item)
+
+        ListSettable<E>* copy ();
     
         void begin ();
         bool hasNext ();
@@ -79,10 +81,18 @@ bool ListSettable<E>::remove(E* item)
 {
     Node* n = find (item);
     if (n == 0) return false;
-    if (size_ == 1)
+    if (n == head)
     {
+    	if (head->next != 0)
+    	{
+    		head = head->next;
+    		head->prev = 0;
+    	}
+    	else
+    	{
+    		head = tail = ptr = 0;
+    	}
     	delete n;
-    	head = tail = ptr = 0;
     }
     else
     {
@@ -92,6 +102,19 @@ bool ListSettable<E>::remove(E* item)
     }
     size_--;
     return true;
+}
+
+template <typename E>
+ListSettable<E>* ListSettable<E>::copy ()
+{
+	ListSettable<E>* new_list = new ListSettable<E> ();
+	begin();
+	while (hasNext())
+	{
+		E* v = next ();
+		new_list->add(v->copy());
+	}
+	return new_list;
 }
 
 template <typename E>

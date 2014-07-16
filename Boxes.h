@@ -11,6 +11,8 @@ class Boxes
 		virtual bool add(E* item) = 0;
 		virtual bool remove(E* item) = 0;
 
+		virtual Boxes<E>* copy () = 0;
+
 		virtual void begin () = 0;
 		virtual bool hasNext () = 0;
 		virtual E* next () = 0;

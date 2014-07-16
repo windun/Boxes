@@ -14,8 +14,9 @@
 template <typename E>
 class Settable {
     public:
-        bool set (E& value);
-        bool equals (E& value);
+        virtual bool set (E& value) = 0;
+        virtual bool equals (E* value) = 0;
+        virtual E* copy () = 0;
 };
 
 class Vector3f : public Settable<Vector3f>
@@ -25,7 +26,10 @@ class Vector3f : public Settable<Vector3f>
     public:
         Vector3f ();
         Vector3f (int value);
+
         bool set (Vector3f& vector);
         bool equals (Vector3f* vector);
+        Vector3f* copy ();
+
         int getValue ();
 };

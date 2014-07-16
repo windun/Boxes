@@ -1,7 +1,5 @@
 #include "Settable.h"
 
-int value;
-
 Vector3f::Vector3f()
 {
 	this->value = 0;
@@ -22,6 +20,12 @@ bool Vector3f::equals (Vector3f* vector)
 {
 	return vector->value == value;
 }
+
+Vector3f* Vector3f::copy ()
+{
+	return new Vector3f (value);
+}
+
 
 int Vector3f::getValue ()
 {

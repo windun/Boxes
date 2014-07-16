@@ -12,6 +12,12 @@ Boxception::Boxception(int type)
 	case ADD_RETURN_VALUE:
 		msg = "add() return value is incorrect.";
 		break;
+	case REMOVE_RETURN_VALUE:
+		msg = "remove() return value is incorrect.";
+		break;
+	case COPY:
+		msg = "Error creating copy.";
+		break;
 	}
 }
 

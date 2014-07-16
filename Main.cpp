@@ -17,5 +17,9 @@ int main()
     {
     	std::cout << "Error: " << e->what() << std::endl;
     }
+    catch (...)
+    {
+    	std::cout << "Uncaught error." << std::endl;
+    }
     std::cout << "Test complete.";
 }
